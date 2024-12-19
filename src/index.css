@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide the default checkbox */
+.checkbox {
+    display: none;
+  }
+  
+  /* Style the label to look like a custom checkbox */
+  .checkbox + label {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px; /* space for the custom checkbox */
+    cursor: pointer;
+    font-size: 16px; /* adjust as needed */
+    line-height: 1.5;
+    user-select: none;
+  }
+  
+  /* Create the custom square checkbox with yellow background */
+  .checkbox + label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: yellow; /* Yellow background */
+    border: 2px solid #333; /* Dark border */
+    border-radius: 5px; /* Square corners */
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition */
+  }
+  
+  /* When the checkbox is checked */
+  .checkbox:checked + label::before {
+    background-color: #ffcc00; /* Darker yellow when checked */
+    border-color: #ffaa00; /* Change border color when checked */
+  }
+  
+  /* Style when the checkbox is hovered */
+  .checkbox + label:hover::before {
+    background-color: #f2e200; /* Lighter yellow on hover */
+  }
+  
+  /* Style the label when checkbox is checked (optional) */
+  .checkbox:checked + label {
+    font-weight: bold;
+  }
+  
+  /* Optional: Add a checkmark symbol when the checkbox is checked */
+  .checkbox:checked + label::after {
+    content: '✔'; /* Checkmark character */
+    position: absolute;
+    left: 0px; /* Adjust checkmark position to fit inside the box */
+    top: 0px;  /* Adjust checkmark position to fit inside the box */
+    font-size: 14px; /* Reduce the font size of the checkmark to fit */
+    color: #333;  /* Checkmark color */
+  }
+  
